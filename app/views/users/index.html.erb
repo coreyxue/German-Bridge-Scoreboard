@@ -12,7 +12,7 @@
 <%for @user in @users%>
 <div id ="block">
 	<table style="display: inline-block;"><tr><td id="name"><%= @user.name%></td></tr></table>
-	<%for @score in @user.scores%>
+	<%for @score in @user.scores.order("created_at ASC")%>
 		<table id="score" style="display: inline-block;">		
 			<tr>
 				<td id="call"><%= @score.num_calls%></td>
