@@ -1,0 +1,37 @@
+<%= link_to "admin enter", new_user_path%>
+<div id="title">Score Board<br/></div>
+
+<div id="admin">
+	<% if admin? %>
+		<%= current_user.name %>'s admin rights: <br/>
+		<%= link_to "Enter calls", scores_new_calls_path, :id => "calls" %>
+		<%= link_to "Enter wins", scores_new_wins_path, :id => "wins"  %>
+		<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
+	<%end%>
+</div>
+<%for @user in @users%>
+<div id ="block">
+	<table style="display: inline-block;"><tr><td id="name"><%= @user.name%></td></tr></table>
+	<%for @score in @user.scores%>
+		<table id="score" style="display: inline-block;">		
+			<tr>
+				<td id="call"><%= @score.num_calls%></td>
+				<td id="win"><%= @score.num_wins%></td>
+			</tr>
+			<tr><td id="record"><%= @score.record%></td></tr>
+		</table>
+	<%end%>
+	<table id="total" style="display: inline-block;">
+		<tr>
+			<td><%= @user.name%></td>
+		</tr>
+		<tr>
+			<td><%= @user.total%></td>
+		</tr>
+	</table>
+	<br/>
+</div>
+<%end%>
+<% if admin? %>
+	<%= link_to "Clear Data", 'users/destroy_all',{:confirm => 'Sure?'}%>
+<%end%>

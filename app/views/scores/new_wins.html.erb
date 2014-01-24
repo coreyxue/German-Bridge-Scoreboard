@@ -1,0 +1,10 @@
+<h1>Scores#new_wins</h1>
+<%= form_tag controller: "scores", action: "create_wins", method: "post" do%>
+	<% for @user in @users%>
+		<%=@user.name%>
+		<%= label_tag(:"win#{@user.id}","win") %>
+		<%= text_field_tag(:"win#{@user.id}")%>
+		<br/>
+	<% end %>
+	<%= submit_tag("Commit Wins!") %>
+<% end %>

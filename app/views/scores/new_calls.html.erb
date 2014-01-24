@@ -1,0 +1,10 @@
+<h1>Scores#new_calls</h1>
+<%= form_tag controller: "scores", action: "create_calls", method: "post" do%>
+	<% for @user in @users%>
+		<%=@user.name%>
+		<%= label_tag(:"call#{@user.id}","call") %>
+		<%= text_field_tag(:"call#{@user.id}")%>
+		<br/>
+	<% end %>
+	<%= submit_tag("Commit Calls!") %>
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  num_calls: 1
+  num_wins: 1
+  user_id: 1
+  record: 1
+
+two:
+  num_calls: 1
+  num_wins: 1
+  user_id: 1
+  record: 1
