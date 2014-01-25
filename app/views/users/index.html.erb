@@ -3,7 +3,7 @@
 
 <div id="admin">
 	<% if admin? %>
-		<%= current_user.name %>'s admin rights: <br/>
+		Admin rights: <br/>
 		<% if call_turn? %>
 			<%= link_to "Enter calls", scores_new_calls_path, :id => "calls" %>
 		<% else %>

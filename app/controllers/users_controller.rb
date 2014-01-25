@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     @user.total = 0;
     @user.save
 
-    if @user.admin
-      session[:remember_token] = @user.id
+    if session[:remember_token]==nil
+      session[:remember_token] = "check!"
     end
 
     if params[:commit]=="Next"
