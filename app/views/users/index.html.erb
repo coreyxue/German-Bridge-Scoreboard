@@ -2,28 +2,32 @@
 <div id="title" style="display: inline-block;"><%= image_tag("dog.jpg", size: "500x300", alt: "Edit Entry")%></div>
 <div id="admin" style="display: inline-block;">
 <% if admin? %>
+<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
 	<%if call_turn? %>
 		<%= form_tag controller: "scores", action: "create_calls", method: "post" do%>
-			<% for @user in @users%>
-				<%=@user.name%>
-				<%= label_tag(:"call#{@user.id}","call") %>
-				<%= text_field_tag :"call#{@user.id}", nil,class: 'text_field' %>
-				<br/>
-			<% end %>
-			<%= submit_tag("Commit Calls!") %>
+			<div id="input">
+				<% for @user in @users%>
+					<%=@user.name%>
+					<%= label_tag(:"call#{@user.id}","call") %>
+					<%= text_field_tag :"call#{@user.id}", nil,class: 'text_field' %>
+					<br/>
+				<% end %>
+			</div>
+			<div class = "button"><%= submit_tag("Commit Calls!") %></div>
 		<% end %>
 	<% else %>
 		<%= form_tag controller: "scores", action: "create_wins", method: "post" do%>
-			<% for @user in @users%>
-				<%=@user.name%>
-				<%= label_tag(:"win#{@user.id}","win") %>
-				<%= text_field_tag(:"win#{@user.id}",nil ,class: 'text_field')%>
-				<br/>
-			<% end %>
-			<%= submit_tag("Commit Wins!") %> 
+			<div id="input">
+				<% for @user in @users%>
+					<%=@user.name%>
+					<%= label_tag(:"win#{@user.id}","win") %>
+					<%= text_field_tag(:"win#{@user.id}",nil ,class: 'text_field')%>
+					<br/>
+				<% end %>
+			</div>
+			<div class = "button"><%= submit_tag("Commit Wins!") %></div>
 		<% end %>
 	<% end %>
-	<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
 <% end %>
 </div>
 

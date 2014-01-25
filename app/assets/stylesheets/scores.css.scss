@@ -5,6 +5,16 @@
 .text_field
 {
 	font-size: 150%;
+	text-align: center;
 	height: 50px;
 	width: 50px;
+}
+#input
+{
+	display: inline-block;
+}
+.button
+{
+	margin-left: 60px;
+	display: inline-block;
 }
