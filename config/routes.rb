@@ -9,6 +9,10 @@ Scores::Application.routes.draw do
 
   match "scores/undo", to: 'scores#undo'
 
+  match "/res", to: 'users#re_session'
+
+  match "/admin", to: 'users#new'
+
   #get "users/index"
 
   #get "users/new"

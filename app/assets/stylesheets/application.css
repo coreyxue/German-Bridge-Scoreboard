@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+.text
+{
+	height: 50px;
+	width: 50px;
+	font-size: 150%;
+}

@@ -1,0 +1,5 @@
+<%= form_tag controller: "scores", action: "new_calls", method: "post" do%>
+	<%=@user.name%>
+	<%= label_tag(:"call#{@user.id}","call") %>
+	<%= text_field_tag(:"call#{@user.id}")%>
+<% end %>

@@ -3,7 +3,7 @@
 	<% for @user in @users%>
 		<%=@user.name%>
 		<%= label_tag(:"call#{@user.id}","call") %>
-		<%= text_field_tag(:"call#{@user.id}")%>
+		<%= text_field_tag :"call#{@user.id}" %>
 		<br/>
 	<% end %>
 	<%= submit_tag("Commit Calls!") %>

@@ -37,4 +37,9 @@ class UsersController < ApplicationController
     reset_session
     redirect_to '/'
   end
+
+  def re_session
+    reset_session
+    redirect_to '/'
+  end
 end
