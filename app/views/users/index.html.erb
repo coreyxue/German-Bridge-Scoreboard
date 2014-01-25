@@ -7,7 +7,7 @@
 			<% for @user in @users%>
 				<%=@user.name%>
 				<%= label_tag(:"call#{@user.id}","call") %>
-				<%= text_field_tag :"call#{@user.id}" %>
+				<%= text_field_tag :"call#{@user.id}", nil,class: 'text_field' %>
 				<br/>
 			<% end %>
 			<%= submit_tag("Commit Calls!") %>
@@ -17,7 +17,7 @@
 			<% for @user in @users%>
 				<%=@user.name%>
 				<%= label_tag(:"win#{@user.id}","win") %>
-				<%= text_field_tag(:"win#{@user.id}")%>
+				<%= text_field_tag(:"win#{@user.id}",nil ,class: 'text_field')%>
 				<br/>
 			<% end %>
 			<%= submit_tag("Commit Wins!") %> 
