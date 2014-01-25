@@ -1,0 +1,24 @@
+<h1><%= @history.on %></h1>
+<%for @user in @history.users%>
+<div id ="block">
+	<table style="display: inline-block;"><tr><td id="name"><%= @user.name%></td></tr></table>
+	<%for @score in @user.scores.order("created_at ASC")%>
+		<table id="score" style="display: inline-block;">		
+			<tr>
+				<td id="call"><%= @score.num_calls%></td>
+				<td id="win"><%= @score.num_wins%></td>
+			</tr>
+			<tr><td id="record"><%= @score.record%></td></tr>
+		</table>
+	<%end%>
+	<table id="total" style="display: inline-block;">
+		<tr>
+			<td><%= @user.name%></td>
+		</tr>
+		<tr>
+			<td><%= @user.total%></td>
+		</tr>
+	</table>
+	<br/>
+</div>
+<%end%>

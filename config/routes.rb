@@ -1,4 +1,10 @@
 Scores::Application.routes.draw do
+  get "histories/index"
+
+  get "histories/create"
+
+  get "histories/show"
+
   get "scores/new_calls"
 
   match "scores/create_calls", to: 'scores#create_calls'
@@ -24,6 +30,7 @@ Scores::Application.routes.draw do
   #get "users/update"
 
   resources :users
+  resources :histories, :only => [:index, :create, :show, :new]
   #resources :scores
 
   # The priority is based upon order of creation:

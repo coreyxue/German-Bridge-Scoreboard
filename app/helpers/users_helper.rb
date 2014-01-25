@@ -12,4 +12,8 @@ module UsersHelper
 		return false
 	end
 
+	def start_recording?
+		return session['history']=='on'
+	end
+
 end

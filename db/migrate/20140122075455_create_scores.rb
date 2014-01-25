@@ -7,6 +7,7 @@ class CreateScores < ActiveRecord::Migration
       t.integer :record
       t.boolean :set_call
       t.boolean :set_win
+      t.integer :history_id
 
       t.timestamps
     end

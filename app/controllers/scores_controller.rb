@@ -1,14 +1,14 @@
 class ScoresController < ApplicationController
   def new_calls
-  	@users = User.all
+  	@users = User.where("history_id = ?", session[:history_id])
   end
 
   def create_calls
-  	size = User.count
-    users = User.all
+  	#size = User.count
+    users = User.where("history_id = ?", session[:history_id])
     users.each do |user|
       call_n = params["call"+(user.id).to_s].to_i
-      s=user.scores.build(:num_calls => call_n,:set_call=>true,:set_win=>false)
+      s=user.scores.build(:num_calls => call_n,:set_call=>true,:set_win=>false,:history_id=>user.history_id)
       s.save
     end
     redirect_to users_path
@@ -19,8 +19,8 @@ class ScoresController < ApplicationController
   end
 
   def create_wins
-  	size = User.count
-    users = User.all
+  	#size = User.count
+    users = User.where("history_id = ?", session[:history_id])
     users.each do |user|
       win_n = params["win"+(user.id).to_s].to_i
       s=user.scores.last
@@ -40,8 +40,8 @@ class ScoresController < ApplicationController
   end
 
   def undo
-    s_w = User.first.scores.last.set_win
-    users = User.all
+    users = User.where("history_id = ?", session[:history_id])
+    s_w = users.first.scores.last.set_win
     users.each do |user|
       s = user.scores.last
       if s_w

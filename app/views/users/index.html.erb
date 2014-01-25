@@ -1,5 +1,5 @@
-<!--%= link_to "admin enter", new_user_path%-->
-<div id="title" style="display: inline-block;"><%= image_tag("dog.jpg", size: "500x300", alt: "Edit Entry")%></div>
+<%= link_to "Our Histories", histories_path%><br/>
+<div id="title" style="display: inline-block;"><%= link_to image_tag("dog.jpg", size: "500x300", alt: "Edit Entry"),url_for(params)%></div>
 <div id="admin" style="display: inline-block;">
 <% if admin? %>
 <%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>

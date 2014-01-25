@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140122075455) do
+ActiveRecord::Schema.define(:version => 20140125190602) do
+
+  create_table "histories", :force => true do |t|
+    t.date     "on"
+    t.boolean  "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "scores", :force => true do |t|
     t.integer  "num_calls"
@@ -20,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20140122075455) do
     t.integer  "record"
     t.boolean  "set_call"
     t.boolean  "set_win"
+    t.integer  "history_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -28,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20140122075455) do
     t.string   "name"
     t.boolean  "admin"
     t.integer  "total"
+    t.integer  "history_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

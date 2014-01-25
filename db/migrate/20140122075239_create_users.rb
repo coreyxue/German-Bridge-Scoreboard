@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.boolean :admin
       t.integer :total
+      t.integer :history_id
 
       t.timestamps
     end

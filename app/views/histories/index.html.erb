@@ -1,0 +1,4 @@
+<h1>Histories</h1>
+<% for @his in @histories %>
+	<%= link_to @his.on, history_path(@his)%>
+<% end %>

@@ -1,15 +1,26 @@
 class UsersController < ApplicationController
+include UsersHelper
   def index
-    @users = User.all
+    if History.last!=nil and History.last.end!=true
+      @users = History.last.users
+    else 
+      @users = []
+    end
   end
 
   def new
-    @users = User.all
+    if not start_recording?
+      session[:history] = 'on'
+      his = History.create(:on=>Date.today)
+      session[:history_id] = his.id
+    end
+    @users = History.last.users
     @user = User.new
   end
 
   def create
     @user = User.new(params[:user])
+    @user.history_id = session[:history_id]
     @user.total = 0;
     @user.save
 
@@ -32,8 +43,11 @@ class UsersController < ApplicationController
   end
 
   def destroy_all
-    User.destroy_all
-    Score.destroy_all
+    #User.destroy_all
+    #Score.destroy_all
+    h= History.last
+    h.end = true
+    h.save
     reset_session
     redirect_to '/'
   end
