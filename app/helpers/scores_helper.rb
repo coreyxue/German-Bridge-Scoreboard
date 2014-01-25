@@ -6,4 +6,7 @@ module ScoresHelper
 		end
 		return "unknown"
 	end
+	def call_turn?
+		Score.last.set_call and Score.last.set_win
+	end
 end

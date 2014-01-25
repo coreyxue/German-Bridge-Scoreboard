@@ -4,8 +4,11 @@
 <div id="admin">
 	<% if admin? %>
 		<%= current_user.name %>'s admin rights: <br/>
-		<%= link_to "Enter calls", scores_new_calls_path, :id => "calls" %>
-		<%= link_to "Enter wins", scores_new_wins_path, :id => "wins"  %>
+		<% if call_turn? %>
+			<%= link_to "Enter calls", scores_new_calls_path, :id => "calls" %>
+		<% else %>
+			<%= link_to "Enter wins", scores_new_wins_path, :id => "wins"  %>
+		<% end %>
 		<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
 	<%end%>
 </div>
