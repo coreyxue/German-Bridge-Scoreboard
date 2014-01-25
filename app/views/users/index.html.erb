@@ -23,8 +23,8 @@
 			<%= submit_tag("Commit Wins!") %> 
 		<% end %>
 	<% end %>
+	<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
 <% end %>
-<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
 </div>
 
 
