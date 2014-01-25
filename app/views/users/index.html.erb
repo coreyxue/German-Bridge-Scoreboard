@@ -1,7 +1,34 @@
 <!--%= link_to "admin enter", new_user_path%-->
-<div id="title"><%= image_tag("dog.jpg", size: "500x300", alt: "Edit Entry")%> <br/></div>
+<div id="title" style="display: inline-block;"><%= image_tag("dog.jpg", size: "500x300", alt: "Edit Entry")%></div>
+<div id="admin" style="display: inline-block;">
+<% if admin? %>
+	<%if call_turn? %>
+		<%= form_tag controller: "scores", action: "create_calls", method: "post" do%>
+			<% for @user in @users%>
+				<%=@user.name%>
+				<%= label_tag(:"call#{@user.id}","call") %>
+				<%= text_field_tag :"call#{@user.id}" %>
+				<br/>
+			<% end %>
+			<%= submit_tag("Commit Calls!") %>
+		<% end %>
+	<% else %>
+		<%= form_tag controller: "scores", action: "create_wins", method: "post" do%>
+			<% for @user in @users%>
+				<%=@user.name%>
+				<%= label_tag(:"win#{@user.id}","win") %>
+				<%= text_field_tag(:"win#{@user.id}")%>
+				<br/>
+			<% end %>
+			<%= submit_tag("Commit Wins!") %> 
+		<% end %>
+	<% end %>
+<% end %>
+<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
+</div>
 
-<div id="admin">
+
+<!--div id="admin">
 	<% if admin? %>
 		Admin rights: <br/>
 		<% if call_turn? %>
@@ -11,7 +38,7 @@
 		<% end %>
 		<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
 	<%end%>
-</div>
+</div-->
 <%for @user in @users%>
 <div id ="block">
 	<table style="display: inline-block;"><tr><td id="name"><%= @user.name%></td></tr></table>
