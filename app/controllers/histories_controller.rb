@@ -4,8 +4,10 @@ class HistoriesController < ApplicationController
   end
 
   def new
-  	session[:history] = 'on'
-  	History.create(:on=>Date.today)
+    if History.last!=nil and History.last.end==true
+    	session[:history] = 'on'
+    	History.create(:on=>Date.today)
+    end
   	redirect_to new_user_path
   end
 

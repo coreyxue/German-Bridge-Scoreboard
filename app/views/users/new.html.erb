@@ -2,13 +2,16 @@
 <%=link_to "Home", '/'%><br/>
 <%if @users %>
 	<% for @u in @users %>
-		<%=@u.name%>
+		<br/><%=@u.name%>
 	<%end%>
 <%end%>
 <%= form_for(@user) do |f| %>
+<div id="name_entry">
 	<%= f.label :name %>
-	<%= f.text_field :name%>
-
-	<%= f.submit "Next" %>
+	<%= f.text_field :name,id:"name_box"%><br/>
+	<div id="next_but">
+		<%= f.submit "Next" %>
+	</div>
 	<%= f.submit "End" %>
+</div>
 <%end%>
