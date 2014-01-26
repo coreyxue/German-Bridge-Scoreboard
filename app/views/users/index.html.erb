@@ -1,6 +1,9 @@
 <body>
 <%= link_to "Our GLORIOUS Histories", histories_path%><br/>
 <div id="title" style="display: inline-block;"><%= link_to image_tag("dog.jpg", size: "500x300", alt: "Edit Entry"),url_for(params)%></div>
+<%if @users==[]%>
+<iframe width="560" height="315" src="//www.youtube.com/embed/ia8CKDIur3s" frameborder="0" allowfullscreen></iframe>
+<%end%>
 <div id="admin" style="display: inline-block;">
 <% if admin? %>
 <%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
