@@ -44,6 +44,10 @@
 		<%= link_to "undo", scores_undo_path, {:id=>"undo",:confirm => 'Sure?'}%>
 	<%end%>
 </div-->
+<%if @users==[]%>
+	<script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script><script type="text/javascript">if (WIDGETBOX) WIDGETBOX.renderWidget('bcd2ff72-0811-49fe-8b74-c8ac4255103b');</script>
+<noscript>Get the <a href="http://www.widgetbox.com/widget/full-size-synth-piano">Full Size Synth Piano</a> widget and many other <a href="http://www.widgetbox.com/">great free widgets</a> at <a href="http://www.widgetbox.com">Widgetbox</a>! Not seeing a widget? (<a href="http://support.widgetbox.com/">More info</a>)</noscript>
+<% end %>
 <%for @user in @users%>
 <div id ="block">
 	<table style="display: inline-block;"><tr><td id="name"><%= @user.name%></td></tr></table>
