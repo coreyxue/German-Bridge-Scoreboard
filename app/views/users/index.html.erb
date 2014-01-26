@@ -1,3 +1,4 @@
+<body>
 <%= link_to "Our GLORIOUS Histories", histories_path%><br/>
 <div id="title" style="display: inline-block;"><%= link_to image_tag("dog.jpg", size: "500x300", alt: "Edit Entry"),url_for(params)%></div>
 <div id="admin" style="display: inline-block;">
@@ -69,3 +70,4 @@
 <% if admin? %>
 	<%= link_to "Clear Data", 'users/destroy_all',{:confirm => 'Sure?'}%>
 <%end%>
+</body>
