@@ -13,6 +13,9 @@ module UsersHelper
 	end
 
 	def start_recording?
+		if History.last!=nil
+			return History.last.end==nil
+		end
 		return session['history']=='on'
 	end
 

@@ -17,6 +17,8 @@ Scores::Application.routes.draw do
 
   match "/res", to: 'users#re_session'
 
+  match "/put", to: 'users#put_session'
+
   match "/admin", to: 'users#new'
 
   #get "users/index"

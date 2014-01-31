@@ -56,4 +56,10 @@ include UsersHelper
     reset_session
     redirect_to '/'
   end
+
+  def put_session
+    if session[:remember_token]==nil
+      session[:remember_token] = "check!"
+    end
+  end
 end
