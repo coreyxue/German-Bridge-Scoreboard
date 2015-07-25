@@ -1,1 +1,3 @@
 Personal project use to keep track the scores of German Bridge(card game).
+
+{<img src="https://codeclimate.com/github/coreyxue/German-Bridge-Scoreboard/badges/gpa.svg" />}[https://codeclimate.com/github/coreyxue/German-Bridge-Scoreboard]
